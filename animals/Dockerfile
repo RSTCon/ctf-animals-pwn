@@ -13,6 +13,7 @@ ENV APACHE_CONF_DIR=/etc/apache2 \
     PHP_DATA_DIR=/var/lib/php
 
 COPY ./app /var/www/app/
+COPY ./flag.txt /flag.txt 
 COPY entrypoint.sh /sbin/entrypoint.sh
 
 RUN	\
